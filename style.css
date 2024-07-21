@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #EFF2F5;
+}
+.container {
+    max-width: 960px;
+    margin: auto;
+}
+.card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(242, 242, 242, 0.5);
+    padding: 20px 40px;
+    width: 100%;
+    transition: box-shadow 0.3s ease-in-out;
+}
+.text-center {
+    text-align: center;
+}
+.section-heading {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f2f2f2;
+    margin-top: 40px;
+}
+.section-heading:nth-of-type(1) {
+    margin-top: 0;
+}
+.note {
+    font-size: 12px;
+    color: #b2b2b2;
+    margin: 5px 0;
+}
+.text-right {
+    text-align: right;
+}
+.form-group {
+    font-size: 14px;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+.col {
+    flex: 1;
+}
+.col-2 {
+    flex: 1 1 48%;
+}
+.col-3 {
+    flex: 1 1 30%;
+}
+.col-4 {
+    flex: 1 1 22%;
+}
+.col-6 {
+    flex: 1 1 100%;
+}
+@media (max-width: 768px) {
+    .col-2, .col-3, .col-4 {
+        flex: 1 1 100%;
+    }
+}
+.required-mark {
+    color: red;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #8a8686;
+}
+input[type="checkbox"] {
+    width: auto;
+}
+.inline {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin: 20px 0;
+}
+.inline label {
+    margin-bottom: 0px;
+}
+button {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.error {
+    color: red;
+    font-size: 12px;
+    padding: 5px 0;
+}
+
+.hidden-block {
+    display: none;
+}

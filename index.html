@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CloudCase | Staff Onboarding Form</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h2 class="text-center">Staff Onboarding Form</h2>
+            <div class="card">
+                <form id="onboardingForm">
+                    <div class="note text-right"><span class="required-mark">*</span> Indicates a required field</div>
+
+                    <!-- Basic Information -->
+                    <h3 class="section-heading">Basic Information</h3>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col col-3">
+                                <label for="firstName">First Name<span class="required-mark">*</span> (as on legal document)</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                                <span class="error" id="firstNameError"></span>
+                            </div>
+                            <div class="col col-3">
+                                <label for="middleName">Middle Name</label>
+                                <input type="text" id="middleName" name="middleName">
+                            </div>
+                            <div class="col col-3">
+                                <label for="lastName">Last Name<span class="required-mark">*</span> (as on legal document)</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                                <span class="error" id="lastNameError"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-2">
+                                <label for="email">Email ID<span class="required-mark">*</span></label>
+                                <input type="email" id="email" name="email" required>
+                                <span class="error" id="emailError"></span>
+                            </div>
+                            <div class="col col-2">
+                                <label for="phone">Phone/Mobile No.<span class="required-mark">*</span></label>
+                                <input type="tel" id="phone" name="phone" required pattern="\+?[0-9]+">
+                                <span class="error" id="phoneError"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-2">
+                                <label for="gender">Gender<span class="required-mark">*</span></label>
+                                <select id="gender" name="gender" required>
+                                    <option value="">Select</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                    <option value="no-answer">Prefer Not to answer</option>
+                                </select>
+                                <span class="error" id="genderError"></span>
+                            </div>
+                            <div class="col col-2">
+                                <label for="dob">Date of Birth<span class="required-mark">*</span></label>
+                                <input type="date" id="dob" name="dob" required>
+                                <span class="error" id="dobError"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label for="bankName">Identity Proof<span class="required-mark">*</span></label>
+                                <input type="file" id="documents" name="documents" required>
+                                <div class="error" id="documentsError"></div>
+                                <div class="note">Please upload one of the ID proof (Diving Lisense front and back, Passport, Birth Certificate)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Address -->
+                    <h3 class="section-heading">Address</h3>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col">
+                                <label for="addressLine1">Address Line 1<span class="required-mark">*</span></label>
+                                <input type="text" id="addressLine1" name="addressLine1" required>
+                                <span class="error" id="addressLine1Error"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label for="addressLine2">Address Line 2</label>
+                                <input type="text" id="addressLine2" name="addressLine2">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-3">
+                                <label for="suburb">Suburb<span class="required-mark">*</span></label>
+                                <input type="text" id="suburb" name="suburb" required>
+                                <span class="error" id="suburbError"></span>
+                            </div>
+                            <div class="col col-3">
+                                <label for="city">City<span class="required-mark">*</span></label>
+                                <input type="text" id="city" name="lastName" required>
+                                <span class="error" id="cityError"></span>
+                            </div>
+                            <div class="col col-3">
+                                <label for="postalCode">Postal Code<span class="required-mark">*</span></label>
+                                <input type="text" id="postalCode" name="postalCode" required>
+                                <span class="error" id="postalCodeError"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col inline">
+                                <input type="checkbox" id="isDifferentPostAddress" name="isDifferentPostAddress" onchange="isDifferentPostAddressCheckbox()">
+                                <label for="isDifferentPostAddress">Is you postal address different to the above address details?</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group hidden-block" id="differentAddress">
+                        <div class="row">
+                            <div class="col">
+                                <label for="additionalAddressLine1">Postal Address Line 1<span class="required-mark">*</span></label>
+                                <input type="text" id="additionalAddressLine1" name="additionalAddressLine1" required>
+                                <span class="error" id="additionalAddressLine1Error"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label for="additionalAddressLine2">Postal Address Line 2</label>
+                                <input type="text" id="additionalAddressLine2" name="additionalAddressLine2">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-3">
+                                <label for="additionalSuburb">Postal Suburb<span class="required-mark">*</span></label>
+                                <input type="text" id="additionalSuburb" name="additionalSuburb" required>
+                                <span class="error" id="additionalSuburbError"></span>
+                            </div>
+                            <div class="col col-3">
+                                <label for="additionalCity">Postal City<span class="required-mark">*</span></label>
+                                <input type="text" id="additionalCity" name="additionalCity" required>
+                                <span class="error" id="additionalCityError"></span>
+                            </div>
+                            <div class="col col-3">
+                                <label for="additionalPostalCode">Postal Code<span class="required-mark">*</span></label>
+                                <input type="text" id="additionalPostalCode" name="additionalPostalCode" required>
+                                <span class="error" id="additionalPostalCodeError"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Employment -->
+                    <h3 class="section-heading">Salary & Supperannuation</h3>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col">
+                                <label for="salary">Annual Salary (NZD)<span class="required-mark">*</span></label>
+                                <input type="text" id="salary" name="salary" required>
+                                <span class="error" id="salaryError"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label for="superannuationAmount">Superannuation Percentage (%)<span class="required-mark">*</span></label>
+                                <input type="text" id="superannuationAmount" name="superannuationAmount" required>
+                                <span class="error" id="superannuationAmountError"></span>
+                                <div class="note">Value should be in percentage up to 99</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tax -->
+                    <h3 class="section-heading">Tax Information</h3>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col col-2">
+                                <label for="tax">Tax No./IRD<span class="required-mark">*</span></label>
+                                <input type="text" id="tax" name="tax" required>
+                                <span class="error" id="taxError"></span>
+                            </div>
+                            <div class="col col-2">
+                                <label for="taxCode">Tax Code<span class="required-mark">*</span></label>
+                                <input type="text" id="taxCode" name="taxCode" required>
+                                <span class="error" id="taxCodeError"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Residential Status -->
+                    <h3 class="section-heading">Residential Status</h3>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col">
+                                <label for="bankName">Residential Status<span class="required-mark">*</span></label>
+                                <select id="residentialStatus" name="residentialStatus" onchange="residentialStatusChange()" required>
+                                    <option value="">Select</option>
+                                    <option value="citizen">I'm a citizen</option>
+                                    <option value="pr">I have permanent residency</option>
+                                    <option value="work">I'm on work visa</option>
+                                    <option value="student">I'm on student visa</option>
+                                    <option value="no-right">I don't have rights to work in New Zealand</option>
+                                </select>
+                                <span class="error" id="residentialStatusError"></span>
+                            </div>
+                        </div>
+                        <div class="row hidden-block" id="visaBlock">
+                            <div class="col">
+                                <label for="visa">Visa<span class="required-mark">*</span></label>
+                                <input type="file" id="visa" name="visa" required>
+                                <span class="error" id="visaError"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bank Details -->
+                    <h3 class="section-heading">Bank Details</h3>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col col-2">
+                                <label for="bankName">Bank Name<span class="required-mark">*</span></label>
+                                <input type="text" id="bankName" name="bankName" required>
+                                <span class="error" id="bankNameError"></span>
+                            </div>
+                            <div class="col col-2">
+                                <label for="accountName">Account Name<span class="required-mark">*</span></label>
+                                <input type="text" id="accountName" name="accountName" required>
+                                <span class="error" id="accountNameError"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="col col-3">
+                                <label for="accountNo">Account No.<span class="required-mark">*</span></label>
+                                <input type="text" id="accountNo" name="accountNo" required>
+                                <span class="error" id="accountNoError"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Emergency Contact -->
+                    <h3 class="section-heading">Emergency Contact</h3>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col col-2">
+                                <label for="emergencyFirstName">First Name<span class="required-mark">*</span></label>
+                                <input type="text" id="emergencyFirstName" name="emergencyFirstName" required>
+                                <span class="error" id="emergencyFirstNameError"></span>
+                            </div>
+                            <div class="col col-2">
+                                <label for="emergencyLastName">Last Name<span class="required-mark">*</span></label>
+                                <input type="text" id="emergencyLastName" name="emergencyLastName" required>
+                                <span class="error" id="emergencyLastNameError"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label for="emergencyAddress">Address<span class="required-mark">*</span></label>
+                                <input type="text" id="emergencyAddress" name="emergencyAddress" required>
+                                <span class="error" id="emergencyAddressError"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-2">
+                                <label for="emergencyRelationship">Relationship<span class="required-mark">*</span></label>
+                                <select id="emergencyRelationship" name="emergencyRelationship" required>
+                                    <option value="">Select</option>
+                                    <option value="partner">Partner</option>
+                                    <option value="parent">Parents/Guardian</option>
+                                    <option value="friend">Friend</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <span class="error" id="emergencyRelationshipError"></span>
+                            </div>
+                            <div class="col col-2">
+                                <label for="emergencyContact">Phone/Mobile No.<span class="required-mark">*</span></label>
+                                <input type="text" id="emergencyContact" name="emergencyContact" required>
+                                <span class="error" id="emergencyContactError"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Medical Condition -->
+                    <h3 class="section-heading">Medical</h3>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col">
+                                <label for="medical">Do you have any medical conditions or disabilities that may require special accommodations or adjustments to effectively perform your job duties?<span class="required-mark">*</span></label>
+                                <select id="medical" name="medical" onchange="medicalCondition()" required>
+                                    <option value="">Select</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                                <span class="error" id="medicalError"></span>
+                            </div>
+                        </div>
+                        <div class="row hidden-block" id="medicalDescBlock">
+                            <div class="col">
+                                <label>Tell us how can we assist<span class="required-mark">*</span></label>
+                                <textarea rows="4" name="medicalDesc" id="medicalDesc" required></textarea>
+                                <span class="error" id="medicalDescError"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Information -->
+                    <h3 class="section-heading">Additional Information</h3>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col">
+                                <label>Any additional information/requirements that you want to request</label>
+                                <textarea rows="4" name="addtionalInfo" id="addtionalInfo"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hidden-block" id="calculationsBlock">
+                        <h3 class="section-heading">Results</h3>
+                        <p>Annual Tax: <span id="taxResult"></span></p>
+                        <p>Annual Superannuation: <span id="superannuationResult"></span></p>
+                    </div>
+
+                    <button type="button" onclick="submitForm()">Submit</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
